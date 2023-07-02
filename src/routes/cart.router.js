@@ -5,7 +5,7 @@ const verifyJWT = require("../utils/verifyJWT")
 const routerCart = express.Router();
 
 routerCart.route('/')
-    .get(verifyJWT,getAll)
+    .get(verifyJWT,getAll)  
     .post(verifyJWT,create);
 
 routerCart.route('/:id')
