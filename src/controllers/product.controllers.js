@@ -7,8 +7,10 @@ const getAll = catchError(async(req, res) => {
     const {category} =req.query
     const where ={}
     if(category) where.categoryId =category
+
+  
     const results = await Product.findAll({
-        include:[Category, ProductImg],
+        include:[{model: ProductImg, as: "images" }, Category ],
         where
     });
     return res.json(results);
@@ -21,7 +23,7 @@ const create = catchError(async(req, res) => {
 
 const getOne = catchError(async(req, res) => {
     const { id } = req.params;
-    const result = await Product.findByPk(id,{include:[Category, ProductImg]});
+    const result = await Product.findByPk(id,{include:[Category, {model: ProductImg , as: "images"}]});
     if(!result) return res.sendStatus(404);
     return res.json(result);
 });

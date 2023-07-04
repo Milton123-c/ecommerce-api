@@ -9,6 +9,6 @@ routerProductImg.route('/')
     .post(upload.single('image'), verifyJWT,create)
 
 routerProductImg.route('/:id')
-    .get(verifyJWT,remove)
+    .delete(verifyJWT,remove)
 
 module.exports = routerProductImg;
