@@ -27,4 +27,4 @@ Product.hasMany(Purchase)
 
 //ProductImg -> //productId
 ProductImg.belongsTo(Product)
-Product.hasMany(ProductImg, {as: "images"})
+Product.hasMany(ProductImg)

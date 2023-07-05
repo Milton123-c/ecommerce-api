@@ -10,7 +10,7 @@ const getAll = catchError(async(req, res) => {
         include:[
             {
                 model:Product,
-                include:[Category, {model: ProductImg , as: "images"}]
+                include:[Category, ProductImg ]
             }
         ],
         where:{userId:user.id}
